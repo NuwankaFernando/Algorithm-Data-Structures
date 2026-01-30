@@ -30,15 +30,29 @@ public class Tut1 {
      */
     public static int findTriplicate(ArrayList<Integer> numbers){
         // TO DO
-        for(int i = 0; i < numbers.size(); i++)
-            for(int j = 0; j < i; j++)
+//        for(int i = 0; i < numbers.size(); i++)
+//            for(int j = 0; j < i; j++)
+//                if(numbers.get(i) == numbers.get(j)) {
+//                    for(int k = 0; k < i; k++) {
+//                        if(numbers.get(j) == numbers.get(k))
+//                            return i;
+//                    }
+//                }
+//        return -1;  // Failure case
+        
+        for(int i = 0; i < numbers.size(); i++) {
+            int count = 0;
+            for(int j = 0; j < i; j++){
                 if(numbers.get(i) == numbers.get(j)) {
-                    for(int k = 0; k < i; k++) {
-                        if(numbers.get(j) == numbers.get(k))
-                            return i;
+                    count += 1;
+                    if (count == 2) {
+                        return 1;
                     }
                 }
+            }
+        }
         return -1;  // Failure case
+ 
     }
 
     public static ArrayList<Integer> createInput(int size, int repeats, boolean shuffle){
